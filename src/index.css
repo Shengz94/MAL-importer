@@ -73,6 +73,9 @@ code {
   max-height: 30px;
   margin: 0 5px 0 15px;
 }
+.top-bar .user-info .right-content .user-name a{
+  color: white;
+}
 
 /****************************/
 /*           Login          */
@@ -112,6 +115,13 @@ code {
 /*      Import to MAL     */
 /****************************/
 
+.import-mal-view .anime-list .status-select{
+  display: flex;
+}
+.import-mal-view .anime-list .status-select select{
+  margin: auto;
+}
+
 .import-mal-view .anime-list .anime-import-card{
   display: flex;
   margin: 15px;
@@ -131,6 +141,11 @@ code {
 .import-mal-view .anime-list .anime-import-card .mal-title select{
   width: 500px;
 }
+.import-mal-view .anime-list .anime-import-card .mal-title .anime-picture a img{
+  margin: 5px;
+  width: 100px;
+  height: 141px;
+}
 .import-mal-view .anime-list .anime-import-card .mal-title a{
   color: blue;
 }
@@ -141,7 +156,7 @@ code {
   margin: 20px 0;
 }
 
-.loading-screen {
+.import-mal-view .loading-screen {
   z-index: 10;
   width: 100vw;
   height: 100%;

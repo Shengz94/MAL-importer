@@ -11,13 +11,13 @@ const TopBar = (props) => {
         <div className="user-info">
             <div className="left-content"> 
                 <div className="logo">
-                    <a href="https://myanimelist.net/"><img id="mal" src={mal_logo}/></a>
+                    <a href="https://myanimelist.net/"><img id="mal" src={mal_logo} alt="MAL"/></a>
                 </div>
                 <div className="app-title">
                     <p>MyAnimeList Importer</p>
                 </div>
                 <div className="logo">
-                    <a href="https://github.com/Shengz94"><img id="github" src={github_logo}/></a>
+                    <a href="https://github.com/Shengz94"><img id="github" src={github_logo} alt="GitHub"/></a>
                 </div>
             </div>
             {isNull(props.user) ?
@@ -28,10 +28,14 @@ const TopBar = (props) => {
                         <ExitToAppIcon size="small" onClick={props.logout}/>
                     </div>
                     <div className="user-avatar">
-                        <img src={props.user.picture} alt="Avatar"/>
+                        <a href={"https://myanimelist.net/profile/" + props.user.name}>
+                            <img src={props.user.picture} alt="Avatar"/>
+                        </a>
                     </div>
                     <div className="user-name">
+                        <a href={"https://myanimelist.net/profile/" + props.user.name}>
                         <span>{props.user.name}</span>
+                        </a>
                     </div>
                 </div>
             }

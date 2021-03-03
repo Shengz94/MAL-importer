@@ -38,6 +38,7 @@ const ImportFromList = (props) => {
     if(isNull(props.userToken)){
       props.history.push("/");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.userToken]);
 
   return (

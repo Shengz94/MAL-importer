@@ -1,5 +1,5 @@
 import {isNull} from "../helper/utils";
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+//import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 
 const AnimeImportCard = (props) => {
   
@@ -25,7 +25,14 @@ const AnimeImportCard = (props) => {
                       </option>
                   })}
               </select>
-              <a href={"https://myanimelist.net/anime/" + props.anime.selected.id} target="_blank" rel="noopener noreferrer"><OpenInNewIcon /></a>
+              <div className="anime-picture">
+                <a
+                  href={"https://myanimelist.net/anime/" + props.anime.selected.id} 
+                  target="_blank" rel="noopener noreferrer">
+                    <img src={props.anime.selected.picture} alt="Anime"/>
+                </a>
+              </div>
+              {/* <a href={"https://myanimelist.net/anime/" + props.anime.selected.id} target="_blank" rel="noopener noreferrer"><OpenInNewIcon /></a> */}
             </label>
             :
             <span><b>No title found on MAL</b></span>

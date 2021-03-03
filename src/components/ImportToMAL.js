@@ -10,10 +10,19 @@ const ImportToMAL = (props) => {
   const [ready, setReady] = useState(false);
   const [animeArray, setAnimeArray] = useState();
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("completed")
+  const STATUS = [
+    "completed",
+    "watching",
+    "on_hold",
+    "dropped",
+    "plan_to_watch"
+  ]
 
   useEffect(() => {
     setLoading(true);
     populateMALTitle();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -30,6 +39,7 @@ const ImportToMAL = (props) => {
     if(isNull(props.userToken)){
       props.history.push("/");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.userToken]);
 
   async function populateMALTitle(){
@@ -55,7 +65,7 @@ const ImportToMAL = (props) => {
       for(const element of props.animes.values()){
         if(element.import && !isNull(element.selected) && !isNull(element.selected.id)){ 
           tempAnimes.push(element.selected.id);
-          requests.push(addToList(props.userToken, element.selected.id, "completed"));
+          requests.push(addToList(props.userToken, element.selected.id, status));
         }
       }
       await Promise.allSettled(requests).then((result) => {
@@ -88,6 +98,15 @@ const ImportToMAL = (props) => {
       {ready  && !isNull(props.animes)?
         <Fragment>
           <div className="anime-list">
+          <div className="status-select">
+            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+              {STATUS.map((status, idx) => {
+                return <option key={idx} value={status}>
+                    {status.replaceAll("_", " ")}
+                  </option>
+              })}
+            </select>
+          </div>
             {animeArray.map(anime =>  
               <AnimeImportCard key={anime.id} 
               anime={anime} updateAnime={props.updateAnime} 

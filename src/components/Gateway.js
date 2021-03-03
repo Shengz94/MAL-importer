@@ -23,11 +23,9 @@ const Gateway = () => {
   }, [userToken]);
 
   useEffect(() => {
-    console.log("User Token: " + userToken);
     if(isNull(userToken)){
       let params = new URLSearchParams(window.location.search);
       let code = params.get("code");
-      console.log("User code: " + code);
       if(!isNull(code)){
         let codeVerifier = localStorage.getItem("codeVerifier");
         getToken(code, codeVerifier).then((data) => {
@@ -40,13 +38,14 @@ const Gateway = () => {
         setUser(data);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // function logout(){
-  //   revokeToken(userToken);
-  //   setUserToken(undefined);
-  //   setUser(undefined);
-  // }
+  function logout(){
+    //revokeToken(userToken); Not available at MAL API yet
+    setUserToken(undefined);
+    setUser(undefined);
+  }
 
   function populateAnimes(input){
     setAnimes(input);
@@ -61,7 +60,6 @@ const Gateway = () => {
   function updateAnimes(data){
     let tempAnimes = new Map(animes);
     let idx = 0;
-    console.log(data);
     tempAnimes.forEach(element => {
       element.malTitle = data[idx].value;
       element.selected = data[idx].value[0];
@@ -115,7 +113,7 @@ const Gateway = () => {
 
   return (
     <Fragment>
-      <TopBar user={user} /> {/*logout={logout}/>*/}
+      <TopBar user={user} logout={logout}/> 
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/"> 

@@ -3,13 +3,14 @@ import {isNull} from './utils'
 const MAL_API_KEY = "194e0811df1955e98ce8c7594b114989";
 const MAL_API_SECRET = "b1d22172346c467dcec1ce6d5dab8fc9c8caad25f26a43279f99771dba0da9f9";
 const MAL_DOMAIN_V1 = "https://myanimelist.net/v1";
-const MAL_DOMAIN_V2 = "https://shrouded-savannah-10975.herokuapp.com/https://api.myanimelist.net/v2";
+const MAL_DOMAIN_V2 = "https://api.myanimelist.net/v2";
 const MAL_AUTHENTICATE = "/oauth2/authorize";
 const MAL_GET_TOKEN = "/oauth2/token";
 const MAL_GET_USER = "/users/@me";
 const MAL_GET_ANIME = "/anime";
 const MAL_PUT_ANIME = "/anime/";
-const MAL_REDIRECT_URI = "http://localhost:3000/";
+const MAL_REDIRECT_URI = "https://shengz94.github.io/MAL-importer/";
+//const MAL_REDIRECT_URI = "http://localhost:3000/";
 
 function authenticationURI(code_challenge){
     let body = new URLSearchParams();
@@ -40,11 +41,9 @@ function getToken(code, codeVerifier){
         method: "post"
     };
 
-    return fetch(endpoint, params).then((response) => {
-        console.log(response);
+    return fetch(endpoint, params).then((response) => {        
         return response.json();
     }).then((data) => {
-        console.log(data);
         var result = {
             access_token: data.access_token,
             expireIn: data.expires_in,
@@ -53,7 +52,7 @@ function getToken(code, codeVerifier){
 
         return result;
     });
-}
+};
 
 //https://api.myanimelist.net/v2/users/{user_name} //only @me user is available for now
 function getUserInfo(token){
@@ -126,7 +125,7 @@ function addToList(token, anime, status, score){
     if(!isNull(score)){
         body.append("score", score);
     }
-    
+
     let endpoint = MAL_DOMAIN_V2 + MAL_PUT_ANIME + anime + "/my_list_status";
 
     let params = {
