@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/MAL-Importer/static/css/main.4436f1db.chunk.css",
+    "main.js": "/MAL-Importer/static/js/main.0b31c67b.chunk.js",
+    "main.js.map": "/MAL-Importer/static/js/main.0b31c67b.chunk.js.map",
+    "runtime-main.js": "/MAL-Importer/static/js/runtime-main.5439facc.js",
+    "runtime-main.js.map": "/MAL-Importer/static/js/runtime-main.5439facc.js.map",
+    "static/js/2.55af4c65.chunk.js": "/MAL-Importer/static/js/2.55af4c65.chunk.js",
+    "static/js/2.55af4c65.chunk.js.map": "/MAL-Importer/static/js/2.55af4c65.chunk.js.map",
+    "index.html": "/MAL-Importer/index.html",
+    "static/css/main.4436f1db.chunk.css.map": "/MAL-Importer/static/css/main.4436f1db.chunk.css.map",
+    "static/js/2.55af4c65.chunk.js.LICENSE.txt": "/MAL-Importer/static/js/2.55af4c65.chunk.js.LICENSE.txt",
+    "static/media/mal_logo.5f586ff1.png": "/MAL-Importer/static/media/mal_logo.5f586ff1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5439facc.js",
+    "static/js/2.55af4c65.chunk.js",
+    "static/css/main.4436f1db.chunk.css",
+    "static/js/main.0b31c67b.chunk.js"
+  ]
+}
