@@ -12,6 +12,7 @@ const ImportToMAL = (props) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     populateMALTitle();
   }, []);
 
@@ -36,11 +37,12 @@ const ImportToMAL = (props) => {
 
     props.animes.forEach(element => {
       let tempElement = element;
-      requests.push(searchAnime(tempElement.sourceAnime, props.userToken));
+      requests.push(searchAnime(tempElement.sourceTitle, props.userToken));
     });
     await Promise.allSettled(requests).then(data =>{
       props.updateAnimes(data);
     });
+    setLoading(false);
   }
 
   async function importAnimes(){
@@ -53,7 +55,7 @@ const ImportToMAL = (props) => {
       for(const element of props.animes.values()){
         if(element.import && !isNull(element.selected) && !isNull(element.selected.id)){ 
           tempAnimes.push(element.selected.id);
-          requests.push(addToList(props.userToken, element.selected.id, "complete"));
+          requests.push(addToList(props.userToken, element.selected.id, "completed"));
         }
       }
       await Promise.allSettled(requests).then((result) => {

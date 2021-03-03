@@ -20,15 +20,14 @@ const ImportFromList = (props) => {
         if(!isNull(element) && element.charCodeAt(0) !== 13){
           let anime = {
             id: uuidv4(),
-            sourceAnime: element,
-            malAnime: [],
+            sourceTitle: element,
+            malTitle: [],
             selected: {},
             import: true
           }
           animes.set(anime.id, anime);
         }
       });
-      console.log(animes);
       props.populateAnimes(animes);
       props.history.push("Import-MAL");
     };

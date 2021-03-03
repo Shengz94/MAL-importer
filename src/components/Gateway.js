@@ -13,8 +13,6 @@ const Gateway = () => {
   const [log, setLog] = useState([]);
   const [user, setUser] = useState();
   const [userToken, setUserToken] = useState(localStorage.getItem("userToken"));
-
-
   useEffect(() => {
     localStorage.setItem("userToken", userToken);
     if(!isNull(userToken)){
@@ -65,7 +63,7 @@ const Gateway = () => {
     let idx = 0;
     console.log(data);
     tempAnimes.forEach(element => {
-      element.title = data[idx].value;
+      element.malTitle = data[idx].value;
       element.selected = data[idx].value[0];
       if(isNull(data[idx].value[0])){
         element.import = false;
@@ -95,7 +93,7 @@ const Gateway = () => {
       if(anime.import){
         if(!isNull(anime.selected)){
           if(!isNull(results) && (importedSet.has(anime.selected.id))){
-              result = anime.sourceTitle + " imported to Trakt as ///startTitle///" 
+              result = anime.sourceTitle + " imported to MAL as ///startTitle///" 
                 + anime.selected.title + " (ID:" + anime.selected.id 
                 + "). ///end///https://myanimelist.net/anime/" + anime.selected.id;
           }

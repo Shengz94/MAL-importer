@@ -3,7 +3,7 @@ import {isNull} from './utils'
 const MAL_API_KEY = "194e0811df1955e98ce8c7594b114989";
 const MAL_API_SECRET = "b1d22172346c467dcec1ce6d5dab8fc9c8caad25f26a43279f99771dba0da9f9";
 const MAL_DOMAIN_V1 = "https://myanimelist.net/v1";
-const MAL_DOMAIN_V2 = "https://api.myanimelist.net/v2";
+const MAL_DOMAIN_V2 = "https://shrouded-savannah-10975.herokuapp.com/https://api.myanimelist.net/v2";
 const MAL_AUTHENTICATE = "/oauth2/authorize";
 const MAL_GET_TOKEN = "/oauth2/token";
 const MAL_GET_USER = "/users/@me";
@@ -120,18 +120,18 @@ function searchAnime(title, token){
 //https://api.myanimelist.net/v2/anime/{anime_id}/my_list_status
 function addToList(token, anime, status, score){
     let body = new URLSearchParams();
-    if(isNull(status)){
+    if(!isNull(status)){
         body.append("status", status);
     }
-    if(isNull(score)){
+    if(!isNull(score)){
         body.append("score", score);
     }
-
+    
     let endpoint = MAL_DOMAIN_V2 + MAL_PUT_ANIME + anime + "/my_list_status";
 
     let params = {
         headers:{
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             "Authorization": "Bearer " + token
         },
         body: body,

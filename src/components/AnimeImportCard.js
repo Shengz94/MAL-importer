@@ -9,7 +9,7 @@ const AnimeImportCard = (props) => {
         <input type="checkbox" disabled={isNull(props.anime.malTitle[0])} checked={props.anime.import} onChange={() => props.handleImportCheckBox(props.anime.id)} />
       </div>
       <div className="right-content">
-        <div className="source-name">
+        <div className="source-title">
           <span><b>Input title</b>: {props.anime.sourceTitle}&nbsp;</span>
         </div>
         <div className="mal-title">
@@ -25,7 +25,7 @@ const AnimeImportCard = (props) => {
                       </option>
                   })}
               </select>
-              <a href={"https://myanimelist.net/anime/" + props.title.selected.id} target="_blank" rel="noopener noreferrer"><OpenInNewIcon /></a>
+              <a href={"https://myanimelist.net/anime/" + props.anime.selected.id} target="_blank" rel="noopener noreferrer"><OpenInNewIcon /></a>
             </label>
             :
             <span><b>No title found on MAL</b></span>

@@ -70,10 +70,8 @@ code {
   color:#ed1c24;
 }
 .top-bar .user-info .right-content .user-avatar img{
-  width: 30px;
-  border-radius: 50%;
+  max-height: 30px;
   margin: 0 5px 0 15px;
-
 }
 
 /****************************/
