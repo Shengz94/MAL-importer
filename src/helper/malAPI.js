@@ -9,7 +9,7 @@ const MAL_GET_TOKEN = "/oauth2/token";
 const MAL_GET_USER = "/users/@me";
 const MAL_GET_ANIME = "/anime";
 const MAL_PUT_ANIME = "/anime/";
-const MAL_REDIRECT_URI = "https://shengz94.github.io/MAL-importer/";
+const MAL_REDIRECT_URI = "https://shengz94.github.io/MAL-Importer/";
 //const MAL_REDIRECT_URI = "http://localhost:3000/";
 
 function authenticationURI(code_challenge){
