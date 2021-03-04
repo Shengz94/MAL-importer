@@ -61,9 +61,11 @@ const Gateway = () => {
     let tempAnimes = new Map(animes);
     let idx = 0;
     tempAnimes.forEach(element => {
-      element.malTitle = data[idx].value;
-      element.selected = data[idx].value[0];
-      if(isNull(data[idx].value[0])){
+      if(data[idx].status === "fulfilled"){
+        element.malTitle = data[idx].value;
+        element.selected = data[idx].value[0];
+      }
+      else{
         element.import = false;
       }
       idx++;

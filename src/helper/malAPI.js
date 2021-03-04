@@ -104,10 +104,16 @@ function searchAnime(title, token){
 
         data.data.forEach(element => {
             var current = element.node;
+
+            let pic = "";
+            if(!isNull(current.main_picture)){
+                pic = current.main_picture.medium;
+            }
+
             var entry = {
                 id: current.id,
                 title: current.title,
-                picture: current.main_picture.medium
+                picture: pic
             }
             result.push(entry);
         });
