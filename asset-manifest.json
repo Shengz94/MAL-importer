@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/MAL-Importer/static/css/main.4436f1db.chunk.css",
-    "main.js": "/MAL-Importer/static/js/main.6fd5ebb2.chunk.js",
-    "main.js.map": "/MAL-Importer/static/js/main.6fd5ebb2.chunk.js.map",
+    "main.js": "/MAL-Importer/static/js/main.d1e2e6c2.chunk.js",
+    "main.js.map": "/MAL-Importer/static/js/main.d1e2e6c2.chunk.js.map",
     "runtime-main.js": "/MAL-Importer/static/js/runtime-main.5439facc.js",
     "runtime-main.js.map": "/MAL-Importer/static/js/runtime-main.5439facc.js.map",
     "static/js/2.55af4c65.chunk.js": "/MAL-Importer/static/js/2.55af4c65.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.5439facc.js",
     "static/js/2.55af4c65.chunk.js",
     "static/css/main.4436f1db.chunk.css",
-    "static/js/main.6fd5ebb2.chunk.js"
+    "static/js/main.d1e2e6c2.chunk.js"
   ]
 }
