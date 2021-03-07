@@ -2,8 +2,9 @@ import {isNull} from './utils'
 
 const MAL_API_KEY = "194e0811df1955e98ce8c7594b114989";
 const MAL_API_SECRET = "b1d22172346c467dcec1ce6d5dab8fc9c8caad25f26a43279f99771dba0da9f9";
+const PROXY_DOMAIN = "https://shrouded-savannah-10975.herokuapp.com/";
 const MAL_DOMAIN_V1 = "https://myanimelist.net/v1";
-const MAL_DOMAIN_V2 = "https://shrouded-savannah-10975.herokuapp.com/https://api.myanimelist.net/v2";
+const MAL_DOMAIN_V2 = "https://api.myanimelist.net/v2";
 const MAL_AUTHENTICATE = "/oauth2/authorize";
 const MAL_GET_TOKEN = "/oauth2/token";
 const MAL_GET_USER = "/users/@me";
@@ -31,7 +32,7 @@ function getToken(code, codeVerifier){
     body.append("redirect_uri", MAL_REDIRECT_URI);
     body.append("code_verifier", codeVerifier);
 
-    let endpoint = MAL_DOMAIN_V1 + MAL_GET_TOKEN;// + "?" + params.toString();
+    let endpoint = PROXY_DOMAIN + MAL_DOMAIN_V1 + MAL_GET_TOKEN;
 
     let params = {
         header:{
@@ -56,7 +57,7 @@ function getToken(code, codeVerifier){
 
 //https://api.myanimelist.net/v2/users/{user_name} //only @me user is available for now
 function getUserInfo(token){
-    let endpoint = MAL_DOMAIN_V2 + MAL_GET_USER;
+    let endpoint = PROXY_DOMAIN + MAL_DOMAIN_V2 + MAL_GET_USER;
 
     let params = {
         headers:{
@@ -86,7 +87,7 @@ function searchAnime(title, token){
     body.append("q", title);
     body.append("limit", 10);
 
-    let endpoint = MAL_DOMAIN_V2 + MAL_GET_ANIME + "?" + body.toString();
+    let endpoint = PROXY_DOMAIN + MAL_DOMAIN_V2 + MAL_GET_ANIME + "?" + body.toString();
 
     let params = {
         headers:{
@@ -132,7 +133,7 @@ function addToList(token, anime, status, score){
         body.append("score", score);
     }
 
-    let endpoint = MAL_DOMAIN_V2 + MAL_PUT_ANIME + anime + "/my_list_status";
+    let endpoint = PROXY_DOMAIN + MAL_DOMAIN_V2 + MAL_PUT_ANIME + anime + "/my_list_status";
 
     let params = {
         headers:{
