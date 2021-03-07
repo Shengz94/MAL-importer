@@ -12,9 +12,9 @@ const Gateway = () => {
   const [animes, setAnimes] = useState(new Map());
   const [log, setLog] = useState([]);
   const [user, setUser] = useState();
-  const [userToken, setUserToken] = useState(localStorage.getItem("userToken"));
+  const [userToken, setUserToken] = useState(localStorage.getItem("userToken-MAL"));
   useEffect(() => {
-    localStorage.setItem("userToken", userToken);
+    localStorage.setItem("userToken-MAL", userToken);
     if(!isNull(userToken)){
       getUserInfo(userToken).then((data) => {
         setUser(data);
